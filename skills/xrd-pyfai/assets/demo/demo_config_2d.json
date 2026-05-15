@@ -1,0 +1,10 @@
+{
+  "image_path": "synthetic_texture_image.npy",
+  "poni_path": "synthetic_texture.poni",
+  "output_dir": "outputs_2d",
+  "mode": "2d",
+  "label": "synthetic_texture",
+  "unit": "2th_deg",
+  "npt_rad": 700,
+  "npt_azim": 360
+}

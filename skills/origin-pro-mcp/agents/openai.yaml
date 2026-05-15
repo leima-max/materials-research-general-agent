@@ -1,0 +1,4 @@
+interface:
+  display_name: "Origin Pro MCP"
+  short_description: "Control Origin Pro worksheets, graphs, styling, export, fitting, and LabTalk via MCP."
+  default_prompt: "Use $skill for Origin Pro automation. Read skills/origin-pro-mcp/SKILL.md first, ensure Windows Origin Pro is installed and running, then use or configure the origin-pro MCP server before creating worksheets, plots, fitted curves, or exported publication figures."

@@ -1,0 +1,10 @@
+{
+  "input_csv": "spectral_device_a.csv",
+  "wavelength_column": "wavelength_um",
+  "qe_column": "qe_percent",
+  "dark_current_a": 3.2e-09,
+  "bandwidth_hz": 100.0,
+  "area_cm2": 0.01,
+  "output_dir": "outputs_shot_noise",
+  "label": "device_a_shot_noise"
+}

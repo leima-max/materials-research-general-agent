@@ -1,0 +1,9 @@
+{
+  "image_path": "synthetic_texture_image.npy",
+  "poni_path": "synthetic_texture.poni",
+  "output_dir": "outputs_1d",
+  "mode": "1d",
+  "label": "synthetic_texture",
+  "unit": "2th_deg",
+  "npt": 1800
+}

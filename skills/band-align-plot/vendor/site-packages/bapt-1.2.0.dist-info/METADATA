@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: bapt
+Version: 1.2.0
+Summary: Band alignment plotting tool
+Home-page: https://github.com/utf/bapt
+Author: Alex Ganose
+Author-email: alexganose@googlemail.com
+License: MIT
+Keywords: chemistry dft band alignment ionisation potential electron
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Scientific/Engineering :: Chemistry
+Classifier: Topic :: Scientific/Engineering :: Physics
+Requires-Dist: matplotlib
+Requires-Dist: PyYAML >=5.1
+
+
+Get yourself some nice band alignment diagrams

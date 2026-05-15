@@ -1,0 +1,32 @@
+{
+  "project_title": "<UNCONFIGURED>",
+  "research_field": "<UNCONFIGURED>",
+  "material_system": "<UNCONFIGURED>",
+  "device_or_sample_structure": [
+    {
+      "name": "<COMPONENT_1>",
+      "role": "<UNCONFIGURED>",
+      "geometry": "<UNCONFIGURED>",
+      "key_parameters": {}
+    },
+    {
+      "name": "<COMPONENT_2>",
+      "role": "<UNCONFIGURED>",
+      "geometry": "<UNCONFIGURED>",
+      "key_parameters": {}
+    }
+  ],
+  "primary_objectives": [
+    "<UNCONFIGURED>"
+  ],
+  "key_characterization_methods": [
+    "<UNCONFIGURED>"
+  ],
+  "key_data_types": [
+    "<UNCONFIGURED>"
+  ],
+  "simulation_scope": "<UNCONFIGURED>",
+  "validation_criteria": [
+    "<UNCONFIGURED>"
+  ]
+}

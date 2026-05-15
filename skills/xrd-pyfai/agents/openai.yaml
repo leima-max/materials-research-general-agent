@@ -1,0 +1,5 @@
+interface:
+  display_name: "XRD pyFAI Integration"
+  short_description: "Integrate XRD images with pyFAI"
+  brand_color: "#B45309"
+  default_prompt: "Use $xrd-pyfai to integrate my XRD image into 1D, 2D, or azimuthal profiles."

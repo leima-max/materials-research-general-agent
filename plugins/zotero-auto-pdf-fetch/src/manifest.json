@@ -1,0 +1,20 @@
+﻿{
+  "manifest_version": 2,
+  "name": "Zotero Auto PDF Fetch",
+  "version": "0.1.8",
+  "description": "Automatically runs Zotero's Find Full Text workflow for newly added regular items that have no PDF attachment.",
+  "author": "epi-opto-mentor workspace",
+  "homepage_url": "https://www.zotero.org/support/dev/zotero_7_for_developers",
+  "icons": {
+    "48": "chrome/content/icons/favicon@0.5x.png",
+    "96": "chrome/content/icons/favicon.png"
+  },
+  "applications": {
+    "zotero": {
+      "id": "zoteroautopdffetch@openclaw.org",
+      "update_url": "https://example.org/zotero-auto-pdf-fetch/update.json",
+      "strict_min_version": "6.999",
+      "strict_max_version": "*"
+    }
+  }
+}

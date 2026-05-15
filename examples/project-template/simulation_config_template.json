@@ -1,0 +1,33 @@
+{
+  "simulation_name": "<UNCONFIGURED>",
+  "physics": [
+    "<UNCONFIGURED>"
+  ],
+  "geometry": {
+    "dimension": "<1D/2D/3D>",
+    "domains": [
+      {
+        "name": "<DOMAIN_1>",
+        "material": "<UNCONFIGURED>",
+        "size": "<UNCONFIGURED>"
+      }
+    ]
+  },
+  "materials": {
+    "<MATERIAL_1>": {
+      "parameters": {}
+    }
+  },
+  "boundary_conditions": [],
+  "initial_conditions": {},
+  "sweep": {
+    "parameter": "<UNCONFIGURED>",
+    "values": []
+  },
+  "outputs": [
+    "<UNCONFIGURED>"
+  ],
+  "validation": [
+    "<UNCONFIGURED>"
+  ]
+}

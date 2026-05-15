@@ -1,0 +1,5 @@
+interface:
+  display_name: "Scientify Setup"
+  short_description: "Set up the external Scientify plugin"
+  brand_color: "#0D9488"
+  default_prompt: "Use $scientify to check whether the Scientify plugin can be installed or used in this environment."

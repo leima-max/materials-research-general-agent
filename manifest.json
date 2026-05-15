@@ -1,0 +1,51 @@
+{
+  "name": "research-skills-codex-package",
+  "version": "2026.05.16-zotero-complete",
+  "created_for": "Codex project installation",
+  "package_type": "topic-neutral research skills package",
+  "active_files": [
+    "AGENTS.md",
+    "PROJECT_VARIABLES.md",
+    "DEVICE_CONFIG.md",
+    "MEMORY.md",
+    "README_INSTALL.md"
+  ],
+  "directories": [
+    "skills",
+    "scripts",
+    "memory",
+    "examples",
+    "config",
+    "docs",
+    "mcp",
+    "plugins"
+  ],
+  "skills": [
+    "band-align-plot",
+    "band-diagram-calc",
+    "comsol-opto-simulation",
+    "humanizer-1.0.0",
+    "interface-band-offset",
+    "literature-search",
+    "origin-pro-mcp",
+    "photodetector-pyradi",
+    "pythesis-plot",
+    "scientify",
+    "xrd-pyfai",
+    "zotero-literature-review"
+  ],
+  "genericization_policy": [
+    "No specific user's research topic is preconfigured.",
+    "Project details are represented as variables in PROJECT_VARIABLES.md and DEVICE_CONFIG.md.",
+    "Topic-specific memory, examples, COMSOL outputs, local paths, and measured claims are removed.",
+    "Skill examples must remain generic templates or placeholders."
+  ],
+  "notes": [
+    "Users must configure their own project variables before topic-specific analysis.",
+    "Bundled vendor dependencies are preserved for offline portability.",
+    "Skills are installed into the target Codex project by default, not global skill directories.",
+    "COMSOL workflows require a valid local COMSOL installation and license when used.",
+    "Origin Pro MCP workflows require Windows, Origin Pro 2020+ installed and running, and Windows Python 3.10+ with dependencies configured by setup-origin-pro-mcp.ps1.",
+    "Zotero workflows include a local/hybrid Zotero MCP server, Zotero Auto PDF Fetch plugin source, and sanitized config templates; users must provide their own Zotero API key file and library ID for write tools."
+  ]
+}

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Photodetector Metrics"
+  short_description: "Compute detector metrics and plots"
+  brand_color: "#DC2626"
+  default_prompt: "Use $photodetector-pyradi to compute responsivity, EQE, noise, and D* from my detector data."

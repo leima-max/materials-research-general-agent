@@ -1,0 +1,5 @@
+interface:
+  display_name: "Interface Band Offset"
+  short_description: "Analyze interface band offsets"
+  brand_color: "#7C3AED"
+  default_prompt: "Use $interface-band-offset to analyze band offsets for a generic material interface."

@@ -1,0 +1,37 @@
+{
+  "mcpServers": {
+    "origin-pro": {
+      "command": "<WINDOWS_PYTHON_EXE>",
+      "args": [
+        "-u",
+        "<PROJECT_ROOT>\\skills\\origin-pro-mcp\\server.py"
+      ],
+      "description": "Origin Pro MCP server via Windows COM automation. Requires Windows, Origin Pro 2020+ installed and running, and Python dependencies installed from skills/origin-pro-mcp."
+    },
+    "zotero": {
+      "command": "<PROJECT_ROOT>\\mcp\\zotero-mcp-server\\.venv\\Scripts\\python.exe",
+      "args": [
+        "-m",
+        "zotero_mcp.cli",
+        "serve"
+      ],
+      "cwd": "<PROJECT_ROOT>\\mcp\\zotero-mcp-server",
+      "env": {
+        "ZOTERO_LOCAL": "true",
+        "ZOTERO_LOCAL_LIBRARY_ID": "0",
+        "ZOTERO_LIBRARY_ID": "<YOUR_ZOTERO_USER_OR_GROUP_ID>",
+        "ZOTERO_LIBRARY_TYPE": "user",
+        "ZOTERO_API_KEY_FILE": "<ABSOLUTE_PATH_OUTSIDE_PROJECT>\\zotero_api_key.txt",
+        "ZOTERO_NO_CLAUDE": "true",
+        "PYTHONUTF8": "1",
+        "PYTHONIOENCODING": "utf-8",
+        "FASTMCP_SHOW_SERVER_BANNER": "false",
+        "FASTMCP_CHECK_FOR_UPDATES": "off",
+        "FASTMCP_ENABLE_RICH_LOGGING": "false",
+        "FASTMCP_ENABLE_RICH_TRACEBACKS": "false",
+        "FASTMCP_LOG_LEVEL": "ERROR"
+      },
+      "description": "Zotero MCP server. Local reads use Zotero Desktop local API; hybrid writes use Zotero Web API via ZOTERO_API_KEY_FILE."
+    }
+  }
+}

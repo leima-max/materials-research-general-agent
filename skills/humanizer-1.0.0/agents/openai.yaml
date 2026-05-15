@@ -1,0 +1,5 @@
+interface:
+  display_name: "Humanizer"
+  short_description: "Make AI-like writing sound natural"
+  brand_color: "#64748B"
+  default_prompt: "Use $humanizer to revise this text so it sounds natural while preserving meaning."

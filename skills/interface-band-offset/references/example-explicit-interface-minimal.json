@@ -1,0 +1,33 @@
+﻿{
+  "task": "analyze interface band offset",
+  "mode": "explicit_interface",
+  "inputs": {
+    "material_a": {
+      "name": "<CONFIGURE_MATERIAL_OR_COMPONENT_A>",
+      "notes": "<CONFIGURE_MATERIAL_OR_COMPONENT_A> bulk reference on the film side"
+    },
+    "material_b": {
+      "name": "<CONFIGURE_MATERIAL_OR_COMPONENT_B>",
+      "notes": "<CONFIGURE_MATERIAL_OR_COMPONENT_B> bulk reference on the substrate side"
+    },
+    "directory_bundle": {
+      "material_a": {
+        "bulk_dir": "<CONFIGURE_PROJECT_PATH>/<CONFIGURE_MATERIAL_OR_COMPONENT_A>/bulk"
+      },
+      "material_b": {
+        "bulk_dir": "<CONFIGURE_PROJECT_PATH>/<CONFIGURE_MATERIAL_OR_COMPONENT_B>/bulk"
+      },
+      "interface": {
+        "output_dir": "<CONFIGURE_PROJECT_PATH>/<CONFIGURE_MATERIAL_OR_COMPONENT_A>_<CONFIGURE_MATERIAL_OR_COMPONENT_B>/interface_100",
+        "vacuum_axis": "X",
+        "peak_width": 5,
+        "polar": false
+      }
+    }
+  },
+  "options": {
+    "emit_downstream_parameters": true
+  }
+}
+
+

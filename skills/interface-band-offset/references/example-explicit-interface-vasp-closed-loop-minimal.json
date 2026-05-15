@@ -1,0 +1,52 @@
+﻿{
+  "task": "analyze interface band offset",
+  "mode": "explicit_interface",
+  "inputs": {
+    "material_a": {
+      "name": "<CONFIGURE_MATERIAL_OR_COMPONENT_A>",
+      "surface": [1, 0, 0],
+      "jid": "JVASP-xxxx",
+      "notes": "<CONFIGURE_MATERIAL_OR_COMPONENT_A> film side for explicit-interface VASP closed-loop preparation"
+    },
+    "material_b": {
+      "name": "<CONFIGURE_MATERIAL_OR_COMPONENT_B>",
+      "surface": [1, 0, 0],
+      "jid": "JVASP-yyyy",
+      "notes": "<CONFIGURE_MATERIAL_OR_COMPONENT_B> substrate side for explicit-interface VASP closed-loop preparation"
+    },
+    "matching": {
+      "max_lattice_mismatch_percent": 5.0
+    },
+    "calculation_context": {
+      "slab_thickness_ang": 16.0,
+      "vacuum_thickness_ang": 20.0,
+      "separation_ang": 2.5,
+      "disp_intvl": 0.0
+    },
+    "calculator": {
+      "method": "vasp",
+      "vasp": {
+        "run_mode": "prepare_only",
+        "vasp_cmd": "mpirun vasp_std",
+        "inc": {
+          "ENCUT": 500,
+          "EDIFF": "1E-6",
+          "ISMEAR": 0,
+          "SIGMA": 0.05,
+          "IBRION": 2,
+          "NSW": 200,
+          "ISIF": 2,
+          "LCHARG": ".TRUE.",
+          "LVHAR": ".TRUE.",
+          "LWAVE": ".FALSE."
+        }
+      }
+    }
+  },
+  "options": {
+    "emit_downstream_parameters": true,
+    "export_structure_files": true
+  }
+}
+
+

@@ -1,0 +1,10 @@
+{
+  "input_csv": "spectral_device_a.csv",
+  "wavelength_column": "wavelength_um",
+  "qe_column": "qe_percent",
+  "noise_density_column": "noise_a_root_hz",
+  "bandwidth_hz": 1.0,
+  "area_cm2": 0.01,
+  "output_dir": "outputs_measured_noise",
+  "label": "device_a_measured_noise"
+}

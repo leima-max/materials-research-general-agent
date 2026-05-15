@@ -1,0 +1,15 @@
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak
+*.log
+*.pyc
+*.pyo
+__pycache__/
+.pytest_cache/
+.venv/
+venv/
+env/
+dist/*.zip
+outputs/
+tmp/

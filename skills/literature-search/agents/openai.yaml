@@ -1,0 +1,5 @@
+interface:
+  display_name: "Literature Search"
+  short_description: "Find and triage academic literature"
+  brand_color: "#16A34A"
+  default_prompt: "Use $literature-search to find and triage key academic papers for my configured research topic."

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Band Diagram Calculator"
+  short_description: "Solve generic 1D band diagrams"
+  brand_color: "#0F766E"
+  default_prompt: "Use $band-diagram-calc to solve a generic 1D equilibrium band diagram for my configured stack."

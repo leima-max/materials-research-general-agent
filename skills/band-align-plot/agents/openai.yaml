@@ -1,0 +1,5 @@
+interface:
+  display_name: "Band Alignment Plot"
+  short_description: "Render publication-ready band alignment plots"
+  brand_color: "#2563EB"
+  default_prompt: "Use $band-align-plot to render a publication-ready band alignment figure from my material parameters."

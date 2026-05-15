@@ -1,0 +1,4 @@
+interface:
+  display_name: "Zotero Literature Review"
+  short_description: "Use Zotero, Zotero MCP, and verified metadata for literature reviews, bibliography import, PDF matching, and Word citation workflows."
+  default_prompt: "Use $skill for Zotero-backed literature review and bibliography workflows. Read skills/zotero-literature-review/SKILL.md first, verify Zotero/MCP availability with the bundled smoke tests, and use legal/open-access or user-authorized sources for PDF automation."

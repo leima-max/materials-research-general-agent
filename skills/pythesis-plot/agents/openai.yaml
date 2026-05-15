@@ -1,0 +1,5 @@
+interface:
+  display_name: "PyThesis Plot"
+  short_description: "Analyze data and generate thesis plots"
+  brand_color: "#0891B2"
+  default_prompt: "Use $pythesis-plot to analyze my CSV or Excel data and recommend publication figures."
