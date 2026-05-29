@@ -165,14 +165,14 @@ class FakeSearchZotero:
 def _sample_items():
     return [
         {
-            "key": "PERO1234",
+            "key": "OPTO1234",
             "data": {
                 "itemType": "journalArticle",
-                "title": "Carrier transport and trap states in CsPbBr3 perovskite photodetectors",
+                "title": "Carrier transport and trap states in thin-film optoelectronic devices",
                 "date": "2023",
                 "creators": [{"lastName": "Wang", "firstName": "A."}],
-                "abstractNote": "CsPbBr3 devices show interface trap assisted carrier dynamics and improved response.",
-                "tags": [{"tag": "CsPbBr3"}, {"tag": "photodetector"}],
+                "abstractNote": "Layered semiconductor devices show interface trap assisted carrier dynamics and improved response.",
+                "tags": [{"tag": "optoelectronics"}, {"tag": "photodetector"}],
                 "DOI": "10.1234/example",
             },
         },
@@ -192,7 +192,7 @@ def _sample_items():
 
 def test_infer_insert_position_prefers_citation_worthy_sentence():
     paragraph = (
-        "The film is compact. Interface trap states in CsPbBr3 photodetectors can reduce carrier "
+        "The film is compact. Interface trap states in thin-film photodetectors can reduce carrier "
         "mobility and slow the response by 20 ms."
     )
 
@@ -208,12 +208,12 @@ def test_word_analyze_current_paragraph_ranks_zotero_candidates(monkeypatch, dum
     monkeypatch.setattr(word._client, "get_zotero_client", lambda: fake_zot)
 
     result = server.word_analyze_current_paragraph(
-        paragraph="CsPbBr3 perovskite photodetectors are limited by interface trap states and carrier mobility.",
+        paragraph="Thin-film photodetectors are limited by interface trap states and carrier mobility.",
         limit=2,
         ctx=dummy_ctx,
     )
 
-    assert "PERO1234" in result
+    assert "OPTO1234" in result
     assert "Carrier transport and trap states" in result
     assert "OTHER999" in result
     assert fake_zot.queries
@@ -225,7 +225,7 @@ def test_word_insert_citation_interactive_dry_run_does_not_move_or_open(monkeypa
     monkeypatch.setattr(
         word,
         "_read_active_word_paragraph",
-        lambda: "CsPbBr3 photodetectors are affected by trap states and carrier dynamics.",
+        lambda: "Thin-film photodetectors are affected by trap states and carrier dynamics.",
     )
 
     def fail_move(_offset):
@@ -240,7 +240,7 @@ def test_word_insert_citation_interactive_dry_run_does_not_move_or_open(monkeypa
     result = server.word_insert_citation_interactive(dry_run=True, ctx=dummy_ctx)
 
     assert "Dry run" in result
-    assert "PERO1234" in result
+    assert "OPTO1234" in result
 
 
 def test_word_insert_citation_interactive_moves_and_invokes_plugin(monkeypatch, dummy_ctx):
@@ -251,7 +251,7 @@ def test_word_insert_citation_interactive_moves_and_invokes_plugin(monkeypatch, 
     monkeypatch.setattr(
         word,
         "_read_active_word_paragraph",
-        lambda: "CsPbBr3 photodetectors are affected by trap states and carrier dynamics.",
+        lambda: "Thin-film photodetectors are affected by trap states and carrier dynamics.",
     )
     monkeypatch.setattr(word, "_move_active_word_selection_to_offset", lambda offset: moved.append(offset) or offset)
 
@@ -375,15 +375,15 @@ class FakeSelection:
 
 def _sample_item_for_payload():
     item = {
-        "key": "PERO1234",
+        "key": "OPTO1234",
         "library": {"id": 1234567, "type": "user"},
-        "links": {"alternate": {"href": "https://www.zotero.org/users/1234567/items/PERO1234"}},
-        "data": {"title": "Carrier transport in CsPbBr3", "itemType": "journalArticle"},
+        "links": {"alternate": {"href": "https://www.zotero.org/users/1234567/items/OPTO1234"}},
+        "data": {"title": "Carrier transport in thin-film optoelectronic devices", "itemType": "journalArticle"},
     }
     csl_item = {
-        "id": "http://zotero.org/users/1234567/items/PERO1234",
+        "id": "http://zotero.org/users/1234567/items/OPTO1234",
         "type": "article-journal",
-        "title": "Carrier transport in CsPbBr3",
+        "title": "Carrier transport in thin-film optoelectronic devices",
         "author": [{"family": "Wang", "given": "A."}, {"family": "Li", "given": "B."}],
         "issued": {"date-parts": [[2023]]},
     }
@@ -397,12 +397,12 @@ def test_build_zotero_word_field_code_contains_citation_payload():
 
     assert code.startswith("ZOTERO_ITEM CSL_CITATION ")
     assert '"citationID":"abc123"' in code
-    assert "http://zotero.org/users/1234567/items/PERO1234" in code
+    assert "http://zotero.org/users/1234567/items/OPTO1234" in code
     assert payload["properties"]["plainCitation"] == "(Wang et al., 2023)"
 
 
 def test_word_insert_citation_field_auto_executes_without_dialog(monkeypatch, dummy_ctx):
-    document = FakeDocument(["CsPbBr3 photodetectors are affected by interface trap states."])
+    document = FakeDocument(["Thin-film photodetectors are affected by interface trap states."])
     selection = FakeSelection(document.paragraphs[0].Range)
     item, csl_item = _sample_item_for_payload()
 
@@ -412,7 +412,7 @@ def test_word_insert_citation_field_auto_executes_without_dialog(monkeypatch, du
     monkeypatch.setattr(word, "word_plugin_command", lambda **_kwargs: "refresh ok")
 
     result = server.word_insert_citation_field_auto(
-        item_key="PERO1234",
+        item_key="OPTO1234",
         dry_run=False,
         refresh=True,
         refresh_wait_seconds=0,
@@ -467,13 +467,13 @@ def test_word_refresh_and_verify_uses_document_path(monkeypatch, dummy_ctx):
 
 def test_word_batch_auto_cite_document_executes_plans(monkeypatch, dummy_ctx):
     document = FakeDocument([
-        "CsPbBr3 photodetectors are affected by interface trap states and carrier dynamics.",
-        "PbS heterojunctions improve charge separation in perovskite devices.",
+        "Thin-film photodetectors are affected by interface trap states and carrier dynamics.",
+        "Layered heterojunctions improve charge separation in optoelectronic devices.",
     ])
     item, csl_item = _sample_item_for_payload()
     plans = [
-        {"paragraph_index": 1, "offset": 79, "confidence": 0.9, "sentence": "s1", "item_key": "PERO1234", "title": "T1", "score": 50, "queries": []},
-        {"paragraph_index": 2, "offset": 64, "confidence": 0.9, "sentence": "s2", "item_key": "PERO1234", "title": "T1", "score": 49, "queries": []},
+        {"paragraph_index": 1, "offset": 79, "confidence": 0.9, "sentence": "s1", "item_key": "OPTO1234", "title": "T1", "score": 50, "queries": []},
+        {"paragraph_index": 2, "offset": 64, "confidence": 0.9, "sentence": "s2", "item_key": "OPTO1234", "title": "T1", "score": 49, "queries": []},
     ]
 
     monkeypatch.setattr(word, "_get_active_word_document", lambda: (FakeWordApp(document), document))
@@ -497,7 +497,7 @@ def test_word_batch_auto_cite_document_executes_plans(monkeypatch, dummy_ctx):
 
 def test_word_batch_auto_cite_document_uses_document_path(monkeypatch, dummy_ctx):
     document = FakeDocument([
-        "CsPbBr3 photodetectors are affected by interface trap states and carrier dynamics.",
+        "Thin-film photodetectors are affected by interface trap states and carrier dynamics.",
     ])
     item, csl_item = _sample_item_for_payload()
     plans = [
@@ -506,7 +506,7 @@ def test_word_batch_auto_cite_document_uses_document_path(monkeypatch, dummy_ctx
             "offset": 79,
             "confidence": 0.9,
             "sentence": "s1",
-            "item_key": "PERO1234",
+            "item_key": "OPTO1234",
             "title": "T1",
             "score": 50,
             "queries": [],
@@ -550,7 +550,7 @@ def test_word_insert_citations_ask_mode_does_not_open_document(monkeypatch, dumm
 
     result = server.word_insert_citations(
         mode="ask",
-        explicit_plan=[{"paragraph_index": 1, "item_keys": ["PERO1234"]}],
+        explicit_plan=[{"paragraph_index": 1, "item_keys": ["OPTO1234"]}],
         document_path=r"C:\tmp\paper.docx",
         ctx=dummy_ctx,
     )
@@ -563,7 +563,7 @@ def test_word_insert_citations_ask_mode_does_not_open_document(monkeypatch, dumm
 
 
 def test_word_insert_citations_explicit_executes_dynamic_field(monkeypatch, dummy_ctx):
-    document = FakeDocument(["CsPbBr3 photodetectors are affected by interface trap states."])
+    document = FakeDocument(["Thin-film photodetectors are affected by interface trap states."])
     item, csl_item = _sample_item_for_payload()
     seen = {}
 
@@ -578,7 +578,7 @@ def test_word_insert_citations_explicit_executes_dynamic_field(monkeypatch, dumm
 
     result = server.word_insert_citations(
         mode="explicit",
-        explicit_plan=[{"paragraph_index": 1, "offset": "end", "item_keys": ["PERO1234"], "note": "manual"}],
+        explicit_plan=[{"paragraph_index": 1, "offset": "end", "item_keys": ["OPTO1234"], "note": "manual"}],
         dry_run=False,
         refresh=True,
         refresh_wait_seconds=0,
@@ -595,13 +595,13 @@ def test_word_insert_citations_explicit_executes_dynamic_field(monkeypatch, dumm
 
 def test_word_insert_citations_hybrid_uses_explicit_and_auto(monkeypatch, dummy_ctx):
     document = FakeDocument([
-        "CsPbBr3 photodetectors are affected by interface trap states and carrier dynamics.",
-        "PbS heterojunctions improve charge separation in perovskite devices and reduce recombination.",
+        "Thin-film photodetectors are affected by interface trap states and carrier dynamics.",
+        "Layered heterojunctions improve charge separation in optoelectronic devices and reduce recombination.",
     ])
     item, csl_item = _sample_item_for_payload()
     candidate = {
-        "key": "PERO1234",
-        "data": {"title": "Carrier transport in CsPbBr3"},
+        "key": "OPTO1234",
+        "data": {"title": "Carrier transport in thin-film optoelectronic devices"},
         "_match_score": 60,
     }
 
@@ -612,7 +612,7 @@ def test_word_insert_citations_hybrid_uses_explicit_and_auto(monkeypatch, dummy_
 
     result = server.word_insert_citations(
         mode="hybrid",
-        explicit_plan='[{"paragraph_index": 1, "offset": "end", "item_keys": ["PERO1234"]}]',
+        explicit_plan='[{"paragraph_index": 1, "offset": "end", "item_keys": ["OPTO1234"]}]',
         max_insertions=5,
         min_chars=20,
         min_match_score=10,

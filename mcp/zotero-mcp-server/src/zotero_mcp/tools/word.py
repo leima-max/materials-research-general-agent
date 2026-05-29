@@ -133,12 +133,14 @@ _CLAIM_MARKERS = {
     "mobility",
 }
 _DOMAIN_TERMS = {
-    "pbs",
-    "cspbbr3",
-    "c60",
-    "sno2",
-    "ito",
-    "fto",
+    "optoelectronic",
+    "semiconductor",
+    "thin-film",
+    "oxide",
+    "chalcogenide",
+    "transparent electrode",
+    "transport layer",
+    "absorber",
     "ald",
     "eqe",
     "tem",
@@ -147,20 +149,22 @@ _DOMAIN_TERMS = {
     "fft",
 }
 _CN_TERMS = [
-    "钙钛矿",
+    "光电材料",
+    "半导体材料",
+    "薄膜器件",
     "异质结",
     "陷阱态",
     "载流子",
-    "外延",
     "界面",
     "响应度",
     "探测率",
     "迁移率",
-    "光电探测",
+    "光电器件",
 ]
 _SEARCH_PHRASES = [
-    "perovskite photodetector",
-    "perovskite photodetectors",
+    "thin-film photodetector",
+    "optoelectronic device",
+    "semiconductor heterojunction",
     "trap states",
     "carrier dynamics",
     "carrier mobility",
@@ -168,7 +172,7 @@ _SEARCH_PHRASES = [
     "band alignment",
     "built-in field",
     "heterojunction",
-    "epitaxy",
+    "interface recombination",
 ]
 
 
